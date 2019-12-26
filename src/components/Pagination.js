@@ -13,7 +13,7 @@ const Pagination = ({ countriesPerPage, totalCountries, paginate }) => {
             <ul className="pagination">
                 {pageNumbers.map(pageNumber => {
                     return <li key={pageNumber} className="page-item">
-                        <a onClick={() => paginate(pageNumber)} href="!#" className="page-link pageItem">{pageNumber}</a>   
+                        <button onClick={() => paginate(pageNumber)} className="page-link pageItem">{pageNumber}</button>   
                     </li>
                 })}
             </ul>

@@ -1,25 +1,23 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import Spinner from './Spinner';
+import { Link } from 'react-router-dom';
 
 const Country = (props) => {
 
     const [holiday, setHoliday] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    useEffect(()=> {
+    useEffect(() => {
         const fetchHolidays = async () => {
             setLoading(true);
             const res = await axios.get(`https://calendarific.com/api/v2/holidays?
-            &api_key=76189d7d99947c4db175d77f2bec63c640db7b8f&country=${props.match.params.code}&year=2019`)
+            &api_key=76189d7d99947c4db175d77f2bec63c640db7b8f&country=${props.match.params.code}&year=2020`)
             setHoliday(res.data.response.holidays);
             setLoading(false);
         }
-
         fetchHolidays();
     }, []);
-
-    console.log(holiday);
 
     if(loading){
         return <Spinner />
@@ -27,6 +25,7 @@ const Country = (props) => {
 
     return (
         <div className="container mt-3">
+            <Link to={"/"} className="btn btn-success btn-sm mb-3">Back</Link>
             <div className="row border bg-success text-white pb-1 pt-1">
                 <div className="col-md-2">Name of Holiday</div>
                 <div className="col-md-5">Description</div>
@@ -52,7 +51,6 @@ const Country = (props) => {
                         <div className="col-md-5">{description}</div>
                         <div className="col-md-3">{date.iso}</div>
                         <div className="col-md-2">{stateName}</div>
-
                     </div>
                 })
             }
