@@ -9,7 +9,8 @@ const Pagination = ({ countriesPerPage, totalCountries, paginate }) => {
         pageNumbers.push(i);
     }
     return (
-        <nav className="mt-3 ml-3">
+        <div className="container">
+            <nav className="mt-3 ml-3">
             <ul className="pagination">
                 {pageNumbers.map(pageNumber => {
                     return <li key={pageNumber} className="page-item">
@@ -18,6 +19,10 @@ const Pagination = ({ countriesPerPage, totalCountries, paginate }) => {
                 })}
             </ul>
         </nav>
+        </div>
+
+
+
     )
 }
 
