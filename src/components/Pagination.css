@@ -1,0 +1,8 @@
+.pageItem{
+    color: green;
+    border: 1px dotted;
+}
+.pageItem:hover{
+    background-color: green;
+    color:white !important;
+}
